@@ -1,0 +1,14 @@
+.box {
+    display: flex;
+    flex: 1;
+
+    flex-direction: column;
+}
+
+.boxBlock {
+    display: block;
+}
+
+.verticalCenter {
+    justify-content: center;
+}

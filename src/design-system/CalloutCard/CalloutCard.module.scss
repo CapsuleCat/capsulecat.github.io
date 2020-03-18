@@ -1,0 +1,31 @@
+.calloutCard {
+    $transition-speed: 0.1s;
+
+    background-color: transparent;
+    flex: 1;
+
+    transition-property: background-color;
+    transition-duration: $transition-speed;
+
+    img {
+        transition-property: opacity;
+        transition-duration: $transition-speed;
+    }
+
+    .gatsby-image-wrapper {
+        max-height: 200px;
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        background-color: var(--primary);
+        color: var(--white);
+        text-decoration: none !important;
+
+        img {
+            opacity: 0.5 !important;
+        }
+    }
+}

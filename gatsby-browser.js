@@ -1,5 +1,7 @@
-// custom typefaces
-import "typeface-montserrat"
-import "typeface-merriweather"
 
-import "prismjs/themes/prism.css"
+export const onClientEntry = () => {
+	if (!(`IntersectionObserver` in window)) {
+		// eslint-disable-next-line no-unused-expressions
+		import(`intersection-observer`);
+	}
+};
