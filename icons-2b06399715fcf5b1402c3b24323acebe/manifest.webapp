@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "name": "capsulecat.github.io",
+  "description": null,
+  "icons": {
+    "60": "/icons-2b06399715fcf5b1402c3b24323acebe/firefox_app_60x60.png",
+    "128": "/icons-2b06399715fcf5b1402c3b24323acebe/firefox_app_128x128.png",
+    "512": "/icons-2b06399715fcf5b1402c3b24323acebe/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": null,
+    "url": null
+  }
+}
