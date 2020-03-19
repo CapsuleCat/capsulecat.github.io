@@ -10,7 +10,9 @@ fs.writeFile(folder + '/CNAME', 'capsulecat.com', function (err) {
 		process.exit(1);
 	}
 
-	ghpages.publish(folder, function (err) {
+	ghpages.publish(folder, {
+		repo: `https://${process.env.GITHUB_TOKEN}@github.com/CapsuleCat/capsulecat.github.io.git`,
+	}, function (err) {
 		if (err) {
 			console.error(err);
 			process.exit(1);
