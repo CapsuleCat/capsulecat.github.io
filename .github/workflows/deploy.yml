@@ -13,8 +13,9 @@ jobs:
         run: npm install
       
       - name: Test ✅
-        run: npm run test
-        run: npm run lint
+        run: |
+          npm run test
+          npm run lint
 
       - name: Build 🔧 
         run: npm run build
