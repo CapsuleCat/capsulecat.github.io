@@ -6,22 +6,22 @@ const siteMetadata = {
 		twitter: 'thecapsulecat',
 		googlePlay: 'https://play.google.com/store/apps/developer?id=Capsule+Cat',
 	},
-	image: `/default-site-image.jpg`,
-	siteLanguage: `en-US`,
-	siteLocale: `en_us`,
-	twitterUsername: `@thecapsulecat`,
-	authorName: `Capsule Cat`,
-	backgroundColor: `#f7f0eb`,
-	themeColor: `#3D8DD3`,
+	image: '/default-site-image.jpg',
+	siteLanguage: 'en-US',
+	siteLocale: 'en_us',
+	twitterUsername: '@thecapsulecat',
+	authorName: 'Capsule Cat',
+	backgroundColor: '#f7f0eb',
+	themeColor: '#3D8DD3',
 };
 
-const ICON = "./static/favicon.png";
+const ICON = './static/favicon.png';
 
 module.exports = {
 	siteMetadata,
 	plugins: [
 		{
-			resolve: `gatsby-plugin-favicon`,
+			resolve: 'gatsby-plugin-favicon',
 			options: {
 				logo: ICON,
 				dir: 'auto',
@@ -33,68 +33,61 @@ module.exports = {
 				version: '1.0',
 			},
 		},
-		`gatsby-plugin-robots-txt`,
-		`gatsby-plugin-sitemap`,
-		`gatsby-plugin-sass`,
+		'gatsby-plugin-robots-txt',
+		'gatsby-plugin-sitemap',
+		'gatsby-plugin-sass',
 		{
-			resolve: `gatsby-source-filesystem`,
+			resolve: 'gatsby-source-filesystem',
 			options: {
 				path: `${__dirname}/src/lang`,
-				name: `lang`,
+				name: 'lang',
 			},
 		},
 		{
-			resolve: `gatsby-source-filesystem`,
+			resolve: 'gatsby-source-filesystem',
 			options: {
 				path: `${__dirname}/content/announcements`,
-				name: `announcements`,
+				name: 'announcements',
 			},
 		},
 		{
-			resolve: `gatsby-source-filesystem`,
+			resolve: 'gatsby-source-filesystem',
 			options: {
 				path: `${__dirname}/content/gameHero`,
-				name: `gameHero`,
+				name: 'gameHero',
 			},
 		},
 		{
-			resolve: `gatsby-source-filesystem`,
+			resolve: 'gatsby-source-filesystem',
 			options: {
 				path: `${__dirname}/content/games`,
-				name: `games`,
+				name: 'games',
 			},
 		},
 		{
-			resolve: `gatsby-source-filesystem`,
+			resolve: 'gatsby-source-filesystem',
 			options: {
 				path: `${__dirname}/content/blog`,
-				name: `blog`,
+				name: 'blog',
 			},
 		},
 		{
-			resolve: `gatsby-source-filesystem`,
+			resolve: 'gatsby-source-filesystem',
 			options: {
-				path: `${__dirname}/content/assets`,
-				name: `assets`,
-			},
-		},
-		{
-			resolve: `gatsby-source-filesystem`,
-			options: {
-				name: `pages`,
+				name: 'pages',
 				path: `${__dirname}/content/pages/`,
 			},
 		},
-		`@pauliescanlon/gatsby-mdx-embed`,
+		'@pauliescanlon/gatsby-mdx-embed',
 		{
-			resolve: `gatsby-plugin-mdx`,
+			resolve: 'gatsby-plugin-mdx',
 			options: {
-				extensions: [`.mdx`, `.md`],
+				extensions: ['.mdx', '.md'],
 				gatsbyRemarkPlugins: [
-					`gatsby-remark-copy-linked-files`,
-					`gatsby-remark-smartypants`,
+					'gatsby-remark-copy-linked-files',
+					'gatsby-remark-smartypants',
 					{
-						resolve: `gatsby-remark-images`,
+						resolve: 'gatsby-remark-images',
 						options: {
 							maxWidth: 640,
 							withWebp: true,
@@ -105,46 +98,46 @@ module.exports = {
 			},
 			plugin: [
 				{
-					resolve: `gatsby-remark-images`,
+					resolve: 'gatsby-remark-images',
 					options: {
 						maxWidth: 680,
 					},
 				},
 			],
 		},
-		`gatsby-transformer-sharp`,
-		`gatsby-plugin-sharp`,
+		'gatsby-transformer-sharp',
+		'gatsby-plugin-sharp',
 		{
-			resolve: `gatsby-plugin-google-analytics`,
+			resolve: 'gatsby-plugin-google-analytics',
 			options: {
-				trackingId: `UA-72108944-5`,
+				trackingId: 'UA-72108944-5',
 			},
 		},
-		`gatsby-plugin-feed-mdx`,
+		'gatsby-plugin-feed-mdx',
 		{
-			resolve: `gatsby-plugin-manifest`,
+			resolve: 'gatsby-plugin-manifest',
 			options: {
 				name: siteMetadata.title,
 				short_name: siteMetadata.title,
-				start_url: `/`,
+				start_url: '/',
 				background_color: siteMetadata.backgroundColor,
 				theme_color: siteMetadata.themeColor,
-				display: `minimal-ui`,
+				display: 'minimal-ui',
 				icon: ICON,
 			},
 		},
-		`gatsby-plugin-react-helmet`,
+		'gatsby-plugin-react-helmet',
 		{
-			resolve: `gatsby-plugin-prefetch-google-fonts`,
+			resolve: 'gatsby-plugin-prefetch-google-fonts',
 			options: {
 				fonts: [
 					{
-						family: `Roboto`,
-						variants: [`300`, `400`, `800`],
+						family: 'Roboto',
+						variants: ['300', '400', '800'],
 					},
 					{
-						family: `Bellota Text`,
-						variants: [`400`],
+						family: 'Bellota Text',
+						variants: ['400'],
 					},
 				],
 			},
