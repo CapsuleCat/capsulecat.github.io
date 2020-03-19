@@ -74,7 +74,6 @@ const About = (props) => {
 									href={getTwitterLink(twitter)}
 									target="_blank"
 									rel="noreferrer noopener"
-									title="Follow Us On Twitter"
 								>
 									<FontAwesomeIcon icon={faTwitter} />
 									{' '}

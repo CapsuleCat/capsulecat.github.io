@@ -1,6 +1,7 @@
 ---
 title: Dino Don Released
 date: "2020-03-20T00:00:00.000Z"
+color: white
 backgroundColor: rgb(134, 196, 244)
 image: ./splash.png
 ---
