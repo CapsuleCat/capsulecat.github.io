@@ -9,11 +9,11 @@
         width: calc(100% / var(--columns) - 2rem);
 
         @media screen and (max-width: 1000px) {
-            max-width: calc(50% - 2rem);
+            width: calc(50% - 2rem);
         }
 
         @media screen and (max-width: 600px) {
-            max-width: calc(100% - 2rem);
-        } 
+            width: calc(100% - 2rem);
+        }
     }
 }

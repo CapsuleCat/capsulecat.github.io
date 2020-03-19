@@ -1,13 +1,13 @@
 import React from 'react';
+import { arrayOf, number, shape, string } from 'prop-types';
 
 import '../design-system/setup';
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 import PostHero from '../components/PostHero';
 import Posts from '../components/Posts';
 
-const Blog = (props) => {
-	const { location, pageContext } = props;
+const Blog = ({ location, pageContext }) => {
 	const {
 		group,
 		pathPrefix,
@@ -47,6 +47,20 @@ const Blog = (props) => {
 			)}
 		</Layout>
 	);
+};
+
+Blog.propTypes = {
+	location: shape({}),
+	pageContext: shape({
+		group: arrayOf(shape({
+			node: shape({}),
+		})),
+		pathPrefix: string,
+		first: number,
+		last: number,
+		index: number,
+		pageCount: number,
+	}),
 };
 
 export default Blog;

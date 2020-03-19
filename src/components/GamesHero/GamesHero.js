@@ -1,4 +1,5 @@
 import React from 'react';
+import { any, shape, string } from 'prop-types';
 import cz from 'classnames';
 import BackgroundImage from 'gatsby-background-image';
 import Jumbotron from 'react-bootstrap/Jumbotron';
@@ -23,6 +24,21 @@ const GamesHero = (props) => {
 			<Container className={styles.fullHeight} />
 		</BackgroundImage>
 	);
+};
+
+GamesHero.propTypes = {
+	gameHero: shape({
+		node: shape({
+			frontmatter: shape({
+				backgroundColor: string,
+				image: shape({
+					childImageSharp: shape({
+						fluid: any,
+					}),
+				}),
+			}),
+		}),
+	}),
 };
 
 export default GamesHero;

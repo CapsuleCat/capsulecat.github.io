@@ -1,4 +1,5 @@
 import React from 'react';
+import { arrayOf, bool, oneOfType, node, func, shape, string } from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'gatsby';
 import Container from 'react-bootstrap/Container';
@@ -66,6 +67,15 @@ const Updates = (props) => {
 			</Container>
 		</Box>
 	);
+};
+
+Updates.propTypes = {
+	children: oneOfType([func, node]),
+	hideReadMore: bool,
+	posts: arrayOf(shape({
+
+	})),
+	titleId: string,
 };
 
 export default Updates;

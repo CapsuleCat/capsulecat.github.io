@@ -5,11 +5,11 @@ const StyleInject = (props) => {
 
 	useEffect(() => {
 		const head = document.head;
-		const styleEl = document.createElement("style");
+		const styleEl = document.createElement('style');
 
 		head.appendChild(styleEl);
 
-		styleEl.type = "text/css";
+		styleEl.type = 'text/css';
 		if (styleEl.styleSheet) {
 			styleEl.styleSheet.cssText = style;
 		} else {

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { shape, string } from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'gatsby';
 import Navbar from 'react-bootstrap/Navbar';
@@ -26,7 +27,7 @@ const NAV_ITEMS = [
 	},
 ];
 
-const SiteHeader = ({ location, title }) => {
+const SiteHeader = ({ location }) => {
 	const navItems = NAV_ITEMS.map((item) => {
 		return (
 			<Nav.Link
@@ -71,6 +72,12 @@ const SiteHeader = ({ location, title }) => {
 			<Push />
 		</Fragment>
 	);
+};
+
+SiteHeader.propTypes = {
+	location: shape({
+		pathname: string,
+	}),
 };
 
 export default SiteHeader;

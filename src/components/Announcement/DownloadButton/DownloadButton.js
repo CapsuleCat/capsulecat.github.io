@@ -1,5 +1,7 @@
 import React from 'react';
+import { string } from 'prop-types';
 import cz from 'classnames';
+import { FormattedMessage } from 'react-intl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faFileDownload,
@@ -39,9 +41,19 @@ const DownloadButton = (props) => {
 		>
 			<FontAwesomeIcon icon={icon} />
 			{' '}
-            Download for {type}
+			<FormattedMessage
+				id="site.downloadfor"
+				description="Download for"
+			/>
+			{' '}
+			{type}
 		</a>
 	);
+};
+
+DownloadButton.propTypes = {
+	file: string,
+	type: string,
 };
 
 export default DownloadButton;

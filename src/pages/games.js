@@ -1,9 +1,10 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { array, shape } from 'prop-types';
+import { graphql } from 'gatsby';
 
 import '../design-system/setup';
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 import Featured from '../components/Featured';
 import GamesHero from '../components/GamesHero';
 
@@ -32,6 +33,18 @@ const BlogIndex = ({ data, location }) => {
 
 		</Layout>
 	);
+};
+
+BlogIndex.propTypes = {
+	data: shape({
+		gameHero: shape({
+			edges: array,
+		}),
+		games: shape({
+			edges: array,
+		}),
+	}),
+	location: shape({}),  
 };
 
 export default BlogIndex;

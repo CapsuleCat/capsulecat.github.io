@@ -1,4 +1,5 @@
 import React from 'react';
+import { any, shape, string } from 'prop-types';
 import { Link } from 'gatsby';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
@@ -9,7 +10,7 @@ import BackgroundImage from 'gatsby-background-image';
 import { FormattedMessage } from 'react-intl';
 import cz from 'classnames';
 
-import HeroContent from './HeroContent';
+import Box from '../../design-system/Box';
 import styles from './PostHero.module.scss';
 
 const PostHero = (props) => {
@@ -29,25 +30,30 @@ const PostHero = (props) => {
 	const content = (
 		<Container className={styles.fullHeight}>
 			<Row style={{ width: '100%' }}>
-				{image && <Col className={styles.fullHeight} />}
+				{image && <Col xs={0} sm={3} className={styles.fullHeight} />}
 				<Col className={styles.fullHeight}>
-					<HeroContent {...contentProps} className={cz({
-						'text-center': !image,
-					})}>
+					<Box
+						verticalCenter
+						{...contentProps}
+						className={cz({
+							'text-center': !image,
+						})}
+					>
 						<h2>{title}</h2>
-						<p>{description || excerpt}</p>
+						<p className="lead">{description || excerpt}</p>
 
 						<Button variant="dark" as={Link} to={slug} className={cz({
-							"mr-auto": image,
-							"mx-auto": !image,
+							'mr-auto': image,
+							'mx-auto': !image,
 						})}>
 							<FormattedMessage
 								id="site.readmore"
 								description="Read More"
 							/>
 						</Button>
-					</HeroContent>
+					</Box>
 				</Col>
+				{image && <Col xs={0} sm={3} className={styles.fullHeight} />}
 			</Row>
 		</Container>
 	);
@@ -76,6 +82,23 @@ const PostHero = (props) => {
 			</div>
 		</div>
 	);
+};
+
+PostHero.propTypes = {
+	post: shape({
+		excerpt: string,
+		frontmatter: shape({
+			title: string,
+			description: string,
+			image: shape({
+				childImageSharp: shape({
+					fluid: any,
+				}),
+			}),
+			color: string,
+			backgroundColor: string,
+		}),
+	}),	
 };
 
 export default PostHero;

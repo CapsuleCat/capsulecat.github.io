@@ -1,4 +1,5 @@
 import React from 'react';
+import { func, node, string, oneOfType } from 'prop-types';
 import cx from 'classnames';
 import { Link } from 'gatsby';
 import Card from 'react-bootstrap/Card';
@@ -15,6 +16,12 @@ const CalloutCard = (props) => {
 			{children}
 		</Card>
 	);
+};
+
+CalloutCard.propTypes = {
+	children: oneOfType([node, func]),
+	className: string,
+	to: string,
 };
 
 export default CalloutCard;

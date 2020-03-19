@@ -1,5 +1,52 @@
 {
     "extends": [
         "clarity-hub/react"
-    ]
+    ],
+    "plugins": [
+        "@godaddy/eslint-plugin-react-intl",
+        "@calm/react-intl"
+    ],
+    "settings": {
+        "localeFiles": [
+            "./src/lang/en.json"
+        ]
+    },
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "react/jsx-indent": ["error", "tab"],
+        "react/prop-types": "error",
+        "quotes": [
+            "error",
+            "single"
+        ],
+
+        "@godaddy/react-intl/id-missing": "error",
+        "@godaddy/react-intl/no-default": "error",
+
+        "@calm/react-intl/missing-formatted-message": [
+            2,
+            {
+                "noTrailingWhitespace": true,
+                "ignoreLinks": false,
+                "enforceLabels": true,
+                "enforceImageAlts": false,
+                "enforceInputProps": false
+            }
+        ],
+        "@calm/react-intl/missing-attribute": [
+            2,
+            {
+                "noTrailingWhitespace": true,
+                "noSpreadOperator": true,
+                "requireDescription": false,
+                "formatDefineMessages": false,
+                "requireIdAsString": false,
+                "requireDefaultMessage": false
+            }
+        ],
+        "@calm/react-intl/missing-values": 2
+    }
 }

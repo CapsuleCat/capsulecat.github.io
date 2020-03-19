@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { oneOfType, func, node } from 'prop-types';
 import { IntlProvider } from 'react-intl';
+
 import useLocale from '../../design-system/hooks/useLocale';
 
 const Internationalization = (props) => {
+	const { children } = props;
 	const [messages, setMessages] = useState(null);
 	const locale = useLocale();
 
@@ -10,7 +13,7 @@ const Internationalization = (props) => {
 		// todo load from cache
 		try {
 			const responses = await Promise.all([
-				fetch(`./lang/en.json`).then((res) => res.json()),
+				fetch('./lang/en.json').then((res) => res.json()),
 				lang !== 'en' ? fetch(`./lang/${lang}.json`).then((res) => res.json()) : {},
 			]);
 
@@ -30,8 +33,7 @@ const Internationalization = (props) => {
 	useEffect(() => {
 		loadLang(locale);
 	}, [locale]);
-    
-	// todo loading
+	
 	if (!messages) {
 		return null;
 	}
@@ -43,9 +45,13 @@ const Internationalization = (props) => {
 			messages={messages}
 			defaultLocale="en"
 		>
-			{props.children}
+			{children}
 		</IntlProvider>
 	);
+};
+
+Internationalization.propTypes = {
+	children: oneOfType([func, node]),
 };
 
 export default Internationalization;

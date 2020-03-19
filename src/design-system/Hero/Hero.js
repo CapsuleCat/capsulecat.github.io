@@ -1,4 +1,5 @@
 import React from 'react';
+import { any, bool, func, node, oneOfType, shape, string } from 'prop-types';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -53,7 +54,7 @@ const Hero = (props) => {
 				<Col className={styles.heroInner}>
 					<Box
 						className={cz({
-							"text-center": center,
+							'text-center': center,
 						})}
 						verticalCenter
 					>
@@ -84,6 +85,20 @@ const Hero = (props) => {
 			{innerContent}
 		</BackgroundImage>
 	);
+};
+
+Hero.propTypes = {
+	backgroundColor: string,
+	center: bool,
+	children: oneOfType([node, func]),
+	color: string,
+	height: string,
+	image: shape({
+		childImageSharp: shape({
+			fluid: any,
+		}),
+	}),
+	position: string,
 };
 
 export default Hero;

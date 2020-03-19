@@ -1,4 +1,5 @@
 import React from 'react';
+import { shape, string } from 'prop-types';
 import { Link } from 'gatsby';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -14,17 +15,17 @@ const PostFooter = (props) => {
 				<Col>
 					<ul
 						style={{
-							display: `flex`,
-							flexWrap: `wrap`,
-							justifyContent: `space-between`,
-							listStyle: `none`,
+							display: 'flex',
+							flexWrap: 'wrap',
+							justifyContent: 'space-between',
+							listStyle: 'none',
 							padding: 0,
 						}}
 					>
 						<li>
 							{previous && (
 								<Link to={previous.fields.slug} rel="prev">
-                                    ← {previous.frontmatter.title}
+									← {previous.frontmatter.title}
 								</Link>
 							)}
 						</li>
@@ -40,6 +41,19 @@ const PostFooter = (props) => {
 			</Row>
 		</Container>
 	);
+};
+
+PostFooter.propTypes = {
+	next: shape({
+		frontmatter: shape({
+			title: string,
+		}),
+	}),
+	previous: shape({
+		frontmatter: shape({
+			title: string,
+		}),
+	}),
 };
 
 export default PostFooter;

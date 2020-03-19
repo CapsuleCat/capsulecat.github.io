@@ -1,4 +1,5 @@
 import React from 'react';
+import { number, string } from 'prop-types';
 import cx from 'classnames';
 
 import Box from '../Box';
@@ -28,5 +29,10 @@ const FlexGrid = (props) => {
 		</StyleInject>
 	);
 };
+
+FlexGrid.propTypes = {
+	className: string,
+	maxColumns: number,
+}; 
 
 export default FlexGrid;

@@ -1,10 +1,12 @@
 import React from 'react';
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { any, shape, string } from 'prop-types';
+import { FormattedMessage } from 'react-intl';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import { rhythm } from "../../utils/typography";
+import { rhythm } from '../../utils/typography';
 import Hero from '../../design-system/Hero';
 
 const Post = (props) => {
@@ -32,7 +34,12 @@ const Post = (props) => {
 							{post.frontmatter.title}
 						</h1>
 						<small>
-							Posted: {post.frontmatter.date}
+							<FormattedMessage
+								id="site.page.posts.posted"
+								description="Posted"
+							/>:
+							{' '}
+							{post.frontmatter.date}
 						</small>
 					</Col>
 				</Row>
@@ -46,6 +53,18 @@ const Post = (props) => {
 			</Container>
 		</article>
 	);
+};
+
+Post.propTypes = {
+	post: shape({
+		image: any,
+		backgroundColor: string,
+		frontmatter: shape({
+			date: string,
+			title: string,
+		}),
+		body: string,
+	}),
 };
 
 export default Post;

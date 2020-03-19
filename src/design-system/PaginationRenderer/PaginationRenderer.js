@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, bool, number } from 'prop-types';
 import { Link } from 'gatsby';
 import Pagination from 'react-bootstrap/Pagination';
 
@@ -70,6 +71,15 @@ const PaginationRenderer = (props) => {
 			)}
 		</Pagination>
 	);
+};
+
+PaginationRenderer.propTypes = {
+	first: bool,
+	index: number,
+	last: bool,
+	pageCount: number,
+	pathPrefix: string,
+	range: number,
 };
 
 export default PaginationRenderer;

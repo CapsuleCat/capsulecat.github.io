@@ -24,6 +24,7 @@ const Box = (props) => {
 
 Box.propTypes = {
 	className: string,
+	display: string,
 	verticalCenter: bool,
 };
 

@@ -1,11 +1,12 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
+import { shape, string } from 'prop-types';
 
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 import Game from '../components/Game';
 
-const GameItemTemplate = ({ data, pageContext, location }) => {
+const GameItemTemplate = ({ data, location }) => {
 	const game = data.mdx;
 	const siteTitle = data.site.siteMetadata.title;
 
@@ -21,6 +22,19 @@ const GameItemTemplate = ({ data, pageContext, location }) => {
 			/>
 		</Layout>
 	);
+};
+
+GameItemTemplate.propTypes = {
+	data: shape({
+		mdx: shape({
+			site: shape({
+				siteMetadata: shape({
+					title: string,
+				}),
+			}),
+		}),
+	}),
+	location: shape({}),
 };
 
 export default GameItemTemplate;

@@ -170,19 +170,91 @@ const createArticles = async ({ graphql, actions }) => {
 	});
 };
 
+const createPages = async ({ graphql, actions }) => {
+	const { createPage } = actions;
+
+	const result = await graphql(`
+        {
+            site {
+                siteMetadata {
+                    siteUrl
+                }
+			}
+			allMdx(
+				filter: { fields: { sourceName: { eq: "pages" } } },
+				sort: { fields: [frontmatter___date], order: DESC }
+			) {
+                edges {
+                    node {
+                        id
+                        body
+                        excerpt
+                        frontmatter {
+							title
+							description
+							date(formatString: "DD MMMM, YYYY")
+							color
+							backgroundColor
+                            image {
+                                publicURL
+                                childImageSharp {
+                                    fluid(maxWidth: 1025) {
+                                        base64
+                                        aspectRatio
+                                        src
+                                        srcSet
+                                        sizes
+                                    }
+                                    fixed(width: 1025){
+                                        src
+                                        width
+                                        height
+                                    }
+                                }
+                            }
+                        }
+                        fields {
+                            slug
+                        }
+                    }
+                }
+            }
+        }
+	`);
+
+	if (result.errors) {
+		throw result.errors;
+	}
+
+	const posts = result.data.allMdx.edges;
+
+	return posts.map(({ node }, index) => {
+		return createPage({
+			path: node.fields.slug,
+			component: path.resolve(`./src/templates/markdown-page.js`),
+			context: {
+				slug: node.fields.slug,
+				node,
+			},
+		});
+	});
+};
+
 exports.createPages = async ({ graphql, actions }) => {
 	return Promise.all([
 		createArticles({ graphql, actions }),
 		createGames({ graphql, actions }),
+		createPages({ graphql, actions }),
 	]);
 };
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = async ({ node, actions, getNode }) => {
 	const { createNodeField } = actions;
 
 	if (node.internal.type === `Mdx`) {
 		const parent = getNode(node.parent);
-		const slug = `/${parent.sourceInstanceName}${createFilePath({ node, getNode })}`;
+		const prefix = parent.sourceInstanceName === 'pages' ? '' : `/${parent.sourceInstanceName}`; 
+		const slug = `${prefix}${createFilePath({ node, getNode })}`;
 
 		createNodeField({
 			name: `sourceName`,

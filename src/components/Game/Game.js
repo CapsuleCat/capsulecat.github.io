@@ -1,11 +1,12 @@
 import React from 'react';
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { any, shape, string } from 'prop-types';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import Box from '../../design-system/Box';
-import { rhythm } from "../../utils/typography";
+import { rhythm } from '../../utils/typography';
 import Hero from '../../design-system/Hero';
 
 const Game = (props) => {
@@ -54,6 +55,16 @@ const Game = (props) => {
 			</section>
 		</article>
 	);
+};
+
+Game.propTypes = {
+	game: shape({
+		frontmatter: shape({
+			image: any,
+			backgroundColor: string,
+			color: string,
+		}),
+	}),
 };
 
 export default Game;

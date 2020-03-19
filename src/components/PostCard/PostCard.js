@@ -1,4 +1,5 @@
 import React from 'react';
+import { any, string, shape } from 'prop-types';
 import Img from 'gatsby-image';
 
 import Card from 'react-bootstrap/Card';
@@ -24,6 +25,26 @@ const PostCard = (props) => {
 			</Card.Body>
 		</CalloutCard>
 	);
+};
+
+PostCard.propTypes = {
+	post: shape({
+		node: shape({
+			excerpt: string,
+			fields: shape({
+				slug: string,
+			}),
+			frontmatter: shape({
+				title: string,
+				description: string,
+				image: shape({
+					childImageSharp: shape({
+						fluid: any,
+					}),
+				}),
+			}),
+		}),
+	}),
 };
 
 export default PostCard;

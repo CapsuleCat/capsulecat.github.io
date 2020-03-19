@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
+import { any, func, node, oneOfType, string } from 'prop-types';
 
 import Internationalization from '../Internationalization';
 import SiteHeader from '../SiteHeader/SiteHeader';
@@ -23,6 +24,12 @@ const Layout = ({ location, title, children }) => {
 			</MDXProviderWrapper>
 		</Internationalization>
 	);
+};
+
+Layout.propTypes = {
+	children: oneOfType([func, node]),
+	location: any,
+	title: string,
 };
 
 export default Layout;

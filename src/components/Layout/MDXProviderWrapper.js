@@ -1,5 +1,6 @@
-import React from "react";
-import { MDXProvider } from "@mdx-js/react";
+import React from 'react';
+import { func, node, oneOfType } from 'prop-types';
+import { MDXProvider } from '@mdx-js/react';
 
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -10,11 +11,15 @@ import { Link } from 'gatsby';
 import Box from '../../design-system/Box';
 import { FlexGrid, GridItem } from '../../design-system/Grid';
 import PlayButton from '../PlayButton';
-import DownloadButton from '../DownloadButton';
+import DownloadButton from '../Announcement/DownloadButton';
 
 const DEFAULTS = {
 	inlineCode: 'code',
 	wrapper: ({ children }) => React.createElement(React.Fragment, {}, children),
+};
+
+DEFAULTS.wrapper.propTypes = {
+	children: oneOfType([func, node]),
 };
 
 const shortcodes = {
@@ -40,6 +45,10 @@ const MDXProviderWrapper = ({ children }) => {
 			{children}
 		</MDXProvider>
 	);
+};
+
+MDXProviderWrapper.propTypes = {
+	children: oneOfType([node, func]),
 };
 
 export default MDXProviderWrapper;

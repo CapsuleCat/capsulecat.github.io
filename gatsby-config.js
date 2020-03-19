@@ -4,13 +4,13 @@ const siteMetadata = {
 	siteUrl: 'https://capsulecat.com',
 	social: {
 		twitter: 'thecapsulecat',
+		googlePlay: 'https://play.google.com/store/apps/developer?id=Capsule+Cat',
 	},
-
 	image: `/default-site-image.jpg`,
-	siteLanguage: `en-GB`,
-	siteLocale: `en_gb`,
-	twitterUsername: `@spences10`,
-	authorName: `Scott Spence`,
+	siteLanguage: `en-US`,
+	siteLocale: `en_us`,
+	twitterUsername: `@thecapsulecat`,
+	authorName: `Capsule Cat`,
 	backgroundColor: `#f7f0eb`,
 	themeColor: `#3D8DD3`,
 };
@@ -78,6 +78,13 @@ module.exports = {
 				name: `assets`,
 			},
 		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `pages`,
+				path: `${__dirname}/content/pages/`,
+			},
+		},
 		`@pauliescanlon/gatsby-mdx-embed`,
 		{
 			resolve: `gatsby-plugin-mdx`,
@@ -110,7 +117,7 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-google-analytics`,
 			options: {
-				//trackingId: `ADD YOUR TRACKING ID HERE`,
+				trackingId: `UA-72108944-5`,
 			},
 		},
 		`gatsby-plugin-feed-mdx`,
@@ -142,9 +149,6 @@ module.exports = {
 				],
 			},
 		},
-		// this (optional) plugin enables Progressive Web App + Offline functionality
-		// To learn more, visit: https://gatsby.dev/offline
-		// `gatsby-plugin-offline`,
 		{
 			resolve: 'gatsby-plugin-copy-files',
 			options: {

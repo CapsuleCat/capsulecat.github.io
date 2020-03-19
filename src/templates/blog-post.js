@@ -1,21 +1,24 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
+import { bool, shape, string } from 'prop-types';
 
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 import Post from '../components/Post';
 import PostFooter from '../components/PostFooter';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
 	const post = data.mdx;
 	const siteTitle = data.site.siteMetadata.title;
+	const { frontmatter, excerpt } = post;
+	const { title, description } = frontmatter;
 	const { previous, next } = pageContext;
 
 	return (
 		<Layout location={location} title={siteTitle}>
 			<SEO
-				title={post.frontmatter.title}
-				description={post.frontmatter.description || post.excerpt}
+				title={title}
+				description={description || excerpt}
 			/>
 
 			<Post
@@ -28,6 +31,28 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 			/>
 		</Layout>
 	);
+};
+
+BlogPostTemplate.propTypes = {
+	data: shape({
+		mdx: shape({
+			excerpt: string,
+			frontmatter: shape({
+				title: string,
+				description: string,
+			}),
+		}),
+		site: shape({
+			siteMetadata: shape({
+				title: string,
+			}),
+		}),
+	}),
+	location: shape({}),
+	pageContext: shape({
+		next: bool,
+		previous: bool,
+	}),
 };
 
 export default BlogPostTemplate;

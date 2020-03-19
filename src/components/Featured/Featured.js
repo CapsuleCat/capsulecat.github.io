@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, any, shape } from 'prop-types';
 import Img from 'gatsby-image';
 import { FormattedMessage } from 'react-intl';
 import Container from 'react-bootstrap/Container';
@@ -11,7 +12,7 @@ import Box from '../../design-system/Box';
 import { FlexGrid, GridItem } from '../../design-system/Grid';
 
 const Featured = (props) => {
-	const { featured, titleId = "site.section.featured.title" } = props;
+	const { featured, titleId = 'site.section.featured.title' } = props;
 
 	return (
 		<Container className="my-5">
@@ -50,6 +51,26 @@ const Featured = (props) => {
 			</Row>
 		</Container>
 	);
+};
+
+Featured.propTypes = {
+	featured: shape({
+		node: shape({
+			fields: shape({
+				slug: string,
+			}),
+			frontmatter: shape({
+				title: string,
+				description: string,
+				image: shape({
+					childImageSharp: shape({
+						fluid: any,
+					}),
+				}),
+			}),
+		}),
+	}),
+	titleId: string,
 };
 
 export default Featured;

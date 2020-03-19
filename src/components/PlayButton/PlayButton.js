@@ -1,4 +1,5 @@
 import React from 'react';
+import { string } from 'prop-types';
 
 import styles from './PlayButton.module.scss';
 
@@ -16,6 +17,10 @@ const PlayButton = (props) => {
 			<img src="/google-play-badge.png" alt="Google Play badge" />
 		</a>
 	);
+};
+
+PlayButton.propTypes = {
+	to: string,
 };
 
 export default PlayButton;

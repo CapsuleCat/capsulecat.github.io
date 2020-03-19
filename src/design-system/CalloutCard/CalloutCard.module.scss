@@ -3,7 +3,6 @@
 
     background-color: transparent;
     flex: 1;
-
     transition-property: background-color;
     transition-duration: $transition-speed;
 
@@ -12,8 +11,10 @@
         transition-duration: $transition-speed;
     }
 
-    .gatsby-image-wrapper {
-        max-height: 200px;
+    :global {
+        .gatsby-image-wrapper {
+            max-height: 200px;
+        }
     }
 
     &:hover,

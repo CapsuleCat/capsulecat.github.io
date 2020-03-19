@@ -1,9 +1,9 @@
-import React from "react";
-import { graphql } from "gatsby";
-
+import React from 'react';
+import { graphql } from 'gatsby';
+import { array, shape } from 'prop-types';
 import '../design-system/setup';
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 import Announcement from '../components/Announcement';
 import Featured from '../components/Featured';
 import Updates from '../components/Updates';
@@ -37,6 +37,21 @@ const BlogIndex = ({ data, location }) => {
 			/>
 		</Layout>
 	);
+};
+
+BlogIndex.propTypes = {
+	data: shape({
+		announcement: shape({
+			edges: array,
+		}),
+		featured: shape({
+			edges: array,
+		}),
+		blog: shape({
+			edges: array,
+		}),
+	}),
+	location: shape({}),
 };
 
 export default BlogIndex;
