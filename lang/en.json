@@ -1,0 +1,36 @@
+{
+    "site.title": "Capsule Cat",
+
+    "site.nav.games": "Games",
+    "site.nav.blog": "Updates",
+    "site.nav.about": "About",
+
+    "site.section.featured.title": "Featured Games",
+    "site.section.updates.title": "Latest Updates",
+    "site.section.updates.readmore": "See All Updates",
+    "site.section.footer.additionalCopyRights": "Google Play and the Google Play logo are trademarks of Google LLC.",
+    "site.section.footer.site": "Site",
+    "site.section.footer.site.games": "Games",
+    "site.section.footer.site.blog": "Blog",
+    "site.section.footer.site.aboutUs": "About Us",
+    "site.section.footer.legal": "Legal",
+    "site.section.footer.legal.sitePrivacyPolicy": "Site Privacy Policy",
+    "site.section.footer.legal.gamePrivacyPolicy": "Games Privacy Policy",
+    "site.section.footer.legal.submitRequest": "Submit Request",
+    "site.section.footer.legal.termsAndConditions": "Terms and Conditions",
+
+    "site.page.games.title": "Games",
+    "site.page.posts.title": "Latest Updates",
+    "site.page.posts.posted": "Posted",
+    "site.page.about.title": "About Us",
+    "site.page.about.lead": "Capsule Cat creates games and other media throughout our quest to go where no cat has gone before.",
+    "site.page.404.title": "404 Not Found",
+    "site.page.404.lead": "We couldn't find the page you were looking for.",
+
+    "site.social": "Social",
+    "site.social.twitter": "Twitter",
+    "site.social.twitterFollow": "Follow Us on Twitter",
+    "site.social.googlePlay": "Google Play",
+    "site.readmore": "Read More",
+    "site.downloadfor": "Download For"
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://capsulecat.com/sitemap.xml
+Host: https://capsulecat.com
