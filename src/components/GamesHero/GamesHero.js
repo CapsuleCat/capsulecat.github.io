@@ -10,14 +10,14 @@ import styles from './GamesHero.module.scss';
 const JumbotronWrapper = React.forwardRef((props, ref) => <Jumbotron ref={ref} {...props} />);
 
 const GamesHero = (props) => {
-	const { gameHero } = props;
+	const { className, gameHero } = props;
 	const { frontmatter } = gameHero.node;
 	const { image, backgroundColor } = frontmatter;
 
 	return (
 		<BackgroundImage
 			Tag={JumbotronWrapper}
-			className={cz(styles.gamesHero, styles.fullHeight)}
+			className={cz(className, styles.fullHeight)}
 			fluid={image.childImageSharp.fluid}
 			backgroundColor={backgroundColor}
 		>
@@ -27,6 +27,7 @@ const GamesHero = (props) => {
 };
 
 GamesHero.propTypes = {
+	className: string,
 	gameHero: shape({
 		node: shape({
 			frontmatter: shape({

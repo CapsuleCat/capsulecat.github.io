@@ -11,10 +11,8 @@ import {
 	faWindows,
 } from '@fortawesome/free-brands-svg-icons';
 
-import styles from './DownloadButton.module.scss';
-
 const DownloadButton = (props) => {
-	const { file, type } = props;
+	const { className, file, type } = props;
     
 	let icon = null;
     
@@ -33,7 +31,7 @@ const DownloadButton = (props) => {
 
 	return (
 		<a
-			className={cz(styles.downloadButton, 'btn', 'btn-dark')}
+			className={cz(className, 'btn', 'btn-dark')}
 			href={file}
 			target="_blank"
 			rel="noreferrer noopener"
@@ -52,6 +50,7 @@ const DownloadButton = (props) => {
 };
 
 DownloadButton.propTypes = {
+	className: string,
 	file: string,
 	type: string,
 };
