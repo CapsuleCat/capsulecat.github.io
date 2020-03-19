@@ -97,7 +97,7 @@
     "lint": "npm-run-all -pc lint:**",
     "lint:es": "eslint src",
     "lint:style": "stylelint \"**/*.scss\"",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "husky": {
     "hooks": {
