@@ -27,7 +27,7 @@ jobs:
     - run: npm i
     - run: npm run lint
     - run: npm run test
-    - run: sh ./.github/workflows/deploy.sh
+    - run: sh ./.github/workflows/setup-git.sh
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - run: npm run deploy
