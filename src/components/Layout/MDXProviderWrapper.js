@@ -11,7 +11,7 @@ import { Link } from 'gatsby';
 import Box from '../../design-system/Box';
 import { FlexGrid, GridItem } from '../../design-system/Grid';
 import PlayButton from '../PlayButton';
-import DownloadButton from '../Announcement/DownloadButton';
+import DownloadButton from '../DownloadButton';
 
 const DEFAULTS = {
 	inlineCode: 'code',
