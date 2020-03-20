@@ -30,7 +30,7 @@ const PostHero = (props) => {
 	const content = (
 		<Container className={styles.fullHeight}>
 			<Row style={{ width: '100%' }}>
-				{image && <Col xs={0} sm={3} className={styles.fullHeight} />}
+				{image && <Col sm={3} className={cz(styles.fullHeight, 'd-none d-md-flex')} />}
 				<Col className={styles.fullHeight}>
 					<Box
 						verticalCenter
@@ -53,7 +53,7 @@ const PostHero = (props) => {
 						</Button>
 					</Box>
 				</Col>
-				{image && <Col xs={0} sm={3} className={styles.fullHeight} />}
+				{image && <Col sm={3} className={cz(styles.fullHeight, 'd-none d-md-flex')} />}
 			</Row>
 		</Container>
 	);

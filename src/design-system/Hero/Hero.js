@@ -34,14 +34,14 @@ const Hero = (props) => {
 
 	switch (position) {
 	case 'left':
-		after = <Col />;
+		after = <Col xs={0} />;
 		break;
 	case 'center':
-		after = <Col />;
-		before = <Col />;
+		after = <Col xs={0} />;
+		before = <Col xs={0} />;
 		break;
 	case 'right':
-		before = <Col />;
+		before = <Col xs={0} />;
 		break;
 	default:
         // nothing

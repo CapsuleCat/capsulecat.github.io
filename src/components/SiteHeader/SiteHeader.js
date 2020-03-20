@@ -46,7 +46,7 @@ const SiteHeader = ({ location }) => {
 
 	return (
 		<Fragment>
-			<Navbar bg="dark" variant="dark" fixed="top">
+			<Navbar bg="dark" variant="dark" fixed="top" expand="md">
 				<Navbar.Brand as={Link} to="/">
 					<img
 						alt=""
@@ -61,8 +61,8 @@ const SiteHeader = ({ location }) => {
 						description="Site title"
 					/>
 				</Navbar.Brand>
-				<Navbar.Toggle />
-				<Navbar.Collapse>
+				<Navbar.Toggle aria-controls="site-main-nav" />
+				<Navbar.Collapse id="site-main-nav">
 					<Nav className="mr-auto">
 						{navItems}
 					</Nav>
