@@ -6,7 +6,7 @@ backgroundColor: rgb(134, 196, 244)
 image: ./splash.png
 ---
 
-# Dino Don Released
+## Dino Don Released
 
 I've released Dino Don to the Google Play Store!
 

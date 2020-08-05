@@ -6,7 +6,7 @@ backgroundColor: rgb(134, 196, 244)
 image: ./splash.jpg
 ---
 
-# Welcome!
+## Welcome!
 
 I've launched our new website and I'm very excited about it.
 
