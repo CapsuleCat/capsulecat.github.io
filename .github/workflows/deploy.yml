@@ -5,7 +5,7 @@ on:
       - develop
 jobs:
   build-and-deploy:
-    runs-on: node:12
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
@@ -13,7 +13,7 @@ jobs:
           persist-credentials: false
 
       - name: Install ⬇️
-        run: npm install
+        run: CXXFLAGS="--std=c++14" npm install
       
       - name: Test ✅
         run: |
