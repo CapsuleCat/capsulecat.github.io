@@ -48,7 +48,7 @@ const Hero = (props) => {
 	}
 
 	let innerContent = (
-		<Container as="header" className={styles.heroInner}>
+		<Container as="header" className={styles.heroInner} style={{ color }}>
 			<Row style={{ width: '100%' }}>
 				{before}
 				<Col className={styles.heroInner}>

@@ -40,6 +40,7 @@ BlogPostTemplate.propTypes = {
 			frontmatter: shape({
 				title: string,
 				description: string,
+				noTitle: bool,
 			}),
 		}),
 		site: shape({
@@ -72,6 +73,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+		noTitle
 		image {
 			publicURL
 			childImageSharp {

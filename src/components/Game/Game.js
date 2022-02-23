@@ -1,5 +1,5 @@
 import React from 'react';
-import { any, shape, string } from 'prop-types';
+import { any, shape, string, bool } from 'prop-types';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -11,7 +11,7 @@ import Hero from '../../design-system/Hero';
 
 const Game = (props) => {
 	const { game } = props;
-	const { image, backgroundColor, color } = game.frontmatter;
+	const { image, backgroundColor, color, noTitle } = game.frontmatter;
 
 	let header = null;
     
@@ -21,14 +21,16 @@ const Game = (props) => {
 				<Row>
 					<Col>
 						<Box verticalCenter>
-							<h1
-								style={{
-									marginTop: rhythm(1),
-									marginBottom: 0,
-								}}
-							>
-								{game.frontmatter.title}
-							</h1>
+							{noTitle !== true && (
+								<h1
+									style={{
+										marginTop: rhythm(1),
+										marginBottom: 0,
+									}}
+								>
+									{game.frontmatter.title}
+								</h1>
+							)}
 						</Box>
 					</Col>
 				</Row>
@@ -43,7 +45,9 @@ const Game = (props) => {
 				position="center"
 				center
 			>
-				<h1>{game.frontmatter.title}</h1>
+				{noTitle !== true && (
+					<h1>{game.frontmatter.title}</h1>
+				)}
 			</Hero>
 		);
 	}
@@ -60,6 +64,7 @@ const Game = (props) => {
 Game.propTypes = {
 	game: shape({
 		frontmatter: shape({
+			noTitle: bool,
 			image: any,
 			backgroundColor: string,
 			color: string,

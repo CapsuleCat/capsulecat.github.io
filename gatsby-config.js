@@ -128,18 +128,13 @@ module.exports = {
 		},
 		'gatsby-plugin-react-helmet',
 		{
-			resolve: 'gatsby-plugin-prefetch-google-fonts',
+			resolve: 'gatsby-plugin-google-fonts',
 			options: {
 				fonts: [
-					{
-						family: 'Roboto',
-						variants: ['300', '400', '800'],
-					},
-					{
-						family: 'Bellota Text',
-						variants: ['400'],
-					},
+					'Roboto:300,400,800',
+					'Bellota Text:400'
 				],
+				display: 'swap',
 			},
 		},
 		{
