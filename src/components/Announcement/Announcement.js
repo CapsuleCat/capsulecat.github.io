@@ -10,8 +10,6 @@ const Announcement = ({ announcement }) => {
 
 	const contentProps = {};
 
-	console.log(frontmatter);
-
 	if (color) {
 		contentProps.style = {
 			color,
