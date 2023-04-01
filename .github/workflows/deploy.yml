@@ -16,6 +16,10 @@ jobs:
         with:
           node-version: 16
 
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
       - name: Install ⬇️
         run: CXXFLAGS="--std=c++14" npm install --force
       
