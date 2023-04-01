@@ -12,9 +12,9 @@ jobs:
         with:
           persist-credentials: false
 
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 16
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: Install ⬇️
         run: CXXFLAGS="--std=c++14" npm install
