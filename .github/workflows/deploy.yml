@@ -17,7 +17,7 @@ jobs:
           node-version: 16
 
       - name: Install ⬇️
-        run: CXXFLAGS="--std=c++14" npm install
+        run: CXXFLAGS="--std=c++14" npm install --force
       
       - name: Test ✅
         run: |
