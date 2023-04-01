@@ -51,7 +51,7 @@
     "react-helmet": "^5.2.1",
     "react-intl": "^4.1.1",
     "react-typography": "^0.16.19",
-    "sass": "^1.49.8",
+    "sass": "^1.60.0",
     "styled-components": "^5.0.1",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
